@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 export const tabData = () => {
-    let data = axios.get("http://localhost:5000/users")
+    let data = axios.get("https://graph-ks.herokuapp.com/users")
     return (dispatch)=> {
         data.then( (res)=> {console.log(res.data)
             dispatch({
@@ -14,7 +14,7 @@ export const tabData = () => {
 }
 
 export const graphData = () => {
-    let data = axios.get("http://localhost:5000/users/graph")
+    let data = axios.get("https://graph-ks.herokuapp.com/users/graph")
     return (dispatch)=> {
         data.then( (res)=> {console.log(res.data)
             dispatch({
@@ -27,7 +27,7 @@ export const graphData = () => {
 }
 
 export const userData = (name,email,criteria,value,everyday) => {
-    let data = axios.post("http://localhost:5000/users",{name,email,criteria,value,everyday})
+    let data = axios.post("https://graph-ks.herokuapp.com/users",{name,email,criteria,value,everyday})
     return (dispatch)=> {
         data.then( (res)=> {console.log(res.data)
             dispatch({
@@ -41,7 +41,7 @@ export const userData = (name,email,criteria,value,everyday) => {
 
 
 export const delData = (id) => {console.log(id)
-    const data = axios.delete(`http://localhost:5000/users/${id}`)
+    const data = axios.delete(`https://graph-ks.herokuapp.com/users/${id}`)
     return (dispatch)=> {
         data.then( (res)=> {
             dispatch({
