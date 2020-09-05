@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Axios from 'axios'
 import { tabData,delData } from '../ActionCreator/action';
 import {connect} from 'react-redux';
 

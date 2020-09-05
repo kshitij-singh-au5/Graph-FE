@@ -1,5 +1,5 @@
-import React,{useState, useEffect} from 'react';
-import Axios from 'axios'
+import React,{useState} from 'react';
+
 import {userData,tabData} from '../ActionCreator/action'
 import {connect} from 'react-redux'
 
@@ -7,9 +7,9 @@ function Form({userData}) {
 
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
-    const [criteria, setCriteria] = useState("")
+    const [criteria, setCriteria] = useState("Greater")
     const [value, setValue] = useState("")
-    const [everyday, setEveryday] = useState("yes")
+    const [everyday, setEveryday] = useState(false)
 
     
 
@@ -38,15 +38,15 @@ function Form({userData}) {
                 <div class="form-group mt-2 no-border">
                     <label for="sel1">Criteria</label>
                     <select value={criteria} onChange={e => setCriteria(e.target.value)} class="form-control" id="sel1">
-                        <option>Greater</option>
-                        <option>Less</option>
+                        <option value = "Greater" selected>Greater</option>
+                        <option value = "Less">Less</option>
 
                     </select>
                 </div>
                 <input className="form-control mt-2 no-border"t value={value} onChange={e => setValue(e.target.value)} placeholder="Value"
                     type="text" required />
                 <div className="form-control mt-3 no-border" class="custom-control custom-switch">
-                    <input value={everyday} onChange={e => setEveryday(e.target.value)} type="checkbox" class="custom-control-input" id="customSwitch1" />
+                    <input value={everyday} onClick={() =>  setEveryday(!everyday) } type="checkbox" class="custom-control-input" id="customSwitch1" />
                     <label class="custom-control-label" for="customSwitch1">Everyday</label>
                 </div>
                 <input className="form-control mt-2 no-border" value={email} onChange={e => setEmail(e.target.value)} placeholder="Email"
